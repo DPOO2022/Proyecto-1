@@ -263,7 +263,13 @@ public abstract class Jugador {
 	}
 	public void iniciarPuntosJornada(int numJornadas) {
 		for (int i = 0; i<numJornadas;i++) {
-			this.puntosJornada.add(0.00);
+			if(this.puntosJornada!= null) {
+				this.puntosJornada.add(0.00);
+			}
+			else {
+				this.puntosJornada = new ArrayList<Double>();
+				this.puntosJornada.add(0.00);
+			}
 		}
 	}
 	public String toString() {

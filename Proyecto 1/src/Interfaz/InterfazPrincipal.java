@@ -193,6 +193,9 @@ public class InterfazPrincipal extends JFrame{
 		//falta verficar los casos de los enteros de la respuesta
 		
 		int resp = this.app.cargarResultadoPartido(rutaPartido);
+		if (resp == 0) {
+			JOptionPane.showMessageDialog(this, "Los resultados del partido se han cargado correctamente","",JOptionPane.INFORMATION_MESSAGE);
+		}
 		return resp;
 	}
 
