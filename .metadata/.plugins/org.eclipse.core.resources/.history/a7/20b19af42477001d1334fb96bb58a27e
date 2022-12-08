@@ -3,6 +3,10 @@ package procesamiento;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+
 import modelo.ManejoPersistencia;
 import modelo.Administrador;
 import modelo.Arquero;
@@ -113,7 +117,18 @@ public class Aplicacion {
 		Jornada jornada = this.temporadaActual.getJornadas().get(numJornada-1);
 		return jornada.mejorJugadorJornada();
 	}
-	public EquipoFantasia mejorEquipoActual() { 
+	public EquipoFantasia mejorEquipoActual() { //Si es el mejor equipo de fantasia de la temporada actual esto esta bien, si no, esta mal
+		/*
+		 * ArrayList<EquipoFantasia> equiposTemporadaActual=new
+		 * ArrayList<EquipoFantasia>(); EquipoFantasia mejorEquipo=null; for (int
+		 * i=0;i<participantes.size();i++) {
+		 * equiposTemporadaActual.add(participantes.get(i).getEquipo()); } for (int
+		 * i=0;i<equiposTemporadaActual.size();i++) {
+		 * if(equiposTemporadaActual.get(i).getPuntosTotales()>mejorEquipo.
+		 * getPuntosTotales()) { mejorEquipo=equiposTemporadaActual.get(i); } } return
+		 * mejorEquipo;
+		 */
+		
 		return this.temporadaActual.mejorEquipoFantasiaTemporada();
 	  }
 	public Jugador mejorJugadorActual() {
@@ -381,6 +396,12 @@ public class Aplicacion {
 		Jugador jugadorResultado;
 		Jugador jugadorLista;
 		int numJornada = datosPartido.getNumeroJornada();
+		try {
+			ArrayList Jugadores = datosPartido.getEquipoLocal().getJugadores();
+		}
+		catch(Exception ex) {
+			System.out.println("ERROR");
+		}
 		for (int i = 0; i<datosPartido.getEquipoLocal().getJugadores().size();i++) {
 			jugadorResultado = datosPartido.getEquipoLocal().getJugadores().get(i);
 			for (int j = 0; j<this.temporadaActual.getJugadores().size();j++) {
@@ -597,6 +618,22 @@ public class Aplicacion {
 	public void organizarJugadoresEquipo() {
 		((Participante)this.usuarioActivo).organizarJugadores();
 		
+	}
+	/**
+	 * Para este metodo falta el input del numero que se recibe por parametro
+	 * @return 
+	 */
+	public JFreeChart mostrarGraficoComparacionPuntosEquipos() {
+		return temporadaActual.graficoComparacionEquipos(5);
+	}
+	public JFreeChart mostrarGraficoJugadoresMasPuntosTemporada() {
+		return temporadaActual.graficoJugadoresMasPuntosTemporada();
+	}
+	public JFreeChart mostrarJugadoresMasPuntosEquipo() {
+		//Solucion provisonal: se va a pasar por parametro el mejor equipo de fantasia
+				//de la temporada
+		EquipoFantasia equipo = temporadaActual.getRankingEquiposFantasia().get(1);
+		return temporadaActual.graficoJugadoresMasPuntosEquipo(equipo);
 	}
 	
 }
