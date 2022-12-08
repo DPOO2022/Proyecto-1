@@ -43,10 +43,6 @@ public abstract class Jugador {
 	protected ArrayList<Integer> amarillasJornada;
 	protected ArrayList<Integer> rojasJornada;
 	
-	protected ArrayList<Integer> manosJornada;
-	protected ArrayList<Integer> tirosLibresCobradosJornada;
-	protected ArrayList<Integer> tirosLibresAnotadosJornada;
-	protected ArrayList<String> resultadoPartidoJornada;
 	
 	public Jugador() {
 		minutosJugadosJornada = new ArrayList<Integer>();
@@ -59,29 +55,10 @@ public abstract class Jugador {
 		amarillasJornada= new ArrayList<Integer>();
 		rojasJornada= new ArrayList<Integer>();
 		puntosJornada = new ArrayList<Double>();
-		manosJornada = new ArrayList<Integer>();
-		tirosLibresCobradosJornada = new ArrayList<Integer>();
-		tirosLibresAnotadosJornada = new ArrayList<Integer>();
-		resultadoPartidoJornada =  new ArrayList<String>();
+
 	}
-	public ArrayList<Integer> getManosJornada() {
-		return manosJornada;
-	}
-	public void setManosJornada(ArrayList<Integer> manosJornada) {
-		this.manosJornada = manosJornada;
-	}
-	public ArrayList<Integer> getTirosLibresCobradosJornada() {
-		return tirosLibresCobradosJornada;
-	}
-	public void setTirosLibresCobradosJornada(ArrayList<Integer> tirosLibresCobradosJornada) {
-		this.tirosLibresCobradosJornada = tirosLibresCobradosJornada;
-	}
-	public ArrayList<Integer> getTirosLibresAnotadosJornada() {
-		return tirosLibresAnotadosJornada;
-	}
-	public void setTirosLibresAnotadosJornada(ArrayList<Integer> tirosLibresAnotadosJornada) {
-		this.tirosLibresAnotadosJornada = tirosLibresAnotadosJornada;
-	}
+
+
 	public Jugador(String nombre, String posicion) {
 		this.nombre = nombre;
 		this.posicion = posicion;
@@ -255,18 +232,6 @@ public abstract class Jugador {
 	public void setPuntosJornada(ArrayList<Double> puntosJornada) {
 		this.puntosJornada = puntosJornada;
 	}
-	public ArrayList<String> getResultadoPartidoJornada() {
-		if(resultadoPartidoJornada==null) {
-			resultadoPartidoJornada = new ArrayList<String>();
-			return resultadoPartidoJornada;
-		}
-		else {
-			return resultadoPartidoJornada;
-		}
-	}
-	public void setResultadoPartidoJornada(ArrayList<String> resultadoPartidoJornada) {
-		this.resultadoPartidoJornada = resultadoPartidoJornada;
-	}
 	
 	public void actualizarPuntosJornada(int numJornada, double puntos) {
 		if(minutosJugadosJornada==null) {
@@ -296,18 +261,7 @@ public abstract class Jugador {
 		if(rojasJornada==null) {
 			rojasJornada= new ArrayList<Integer>();
 		}
-		if(manosJornada==null) {
-			manosJornada = new ArrayList<Integer>();
-		}
-		if(tirosLibresCobradosJornada==null) {
-			tirosLibresCobradosJornada = new ArrayList<Integer>();
-		}
-		if(tirosLibresAnotadosJornada==null) {
-			tirosLibresAnotadosJornada = new ArrayList<Integer>();
-		}
-		if(resultadoPartidoJornada==null) {
-			resultadoPartidoJornada = new ArrayList<String>();
-		}
+
 		calcularPuntaje(numJornada);
 		
 	}

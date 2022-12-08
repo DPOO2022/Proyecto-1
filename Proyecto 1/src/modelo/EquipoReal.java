@@ -40,7 +40,6 @@ public class EquipoReal {
 		this.resultadoPartido.add(numJornada-1, resultado);
 		for(Jugador j: jugadores) {
 			j.actualizarPuntosJornada(numJornada, 1);
-			j.getResultadoPartidoJornada().add(numJornada-1, resultado);
 		}
 	}	
 }
