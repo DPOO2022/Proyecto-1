@@ -14,7 +14,6 @@ public class PanelAdmin extends JPanel implements ActionListener{
 	private static final String CPARTIDO = "CPARTIDO";
 	private static final String CERRAR = "CERRAR";
 	private static final String BORRAR= "BORRAR";
-	private static final String ESTADISTICAS= "ESTADISTICAS";
 
 	
 	private VentanaAdmin padre;
@@ -23,7 +22,6 @@ public class PanelAdmin extends JPanel implements ActionListener{
 	private JButton cargarUnPartido;
 	private JButton cerrarSesion;
 	private JButton borrarTemporada;
-	private JButton verEstadisticas;
 	
 	public PanelAdmin(VentanaAdmin papa) {
 		padre = papa;
@@ -35,10 +33,6 @@ public class PanelAdmin extends JPanel implements ActionListener{
 		cargarUnPartido = new JButton("Cargar resultado partido");
 		cargarUnPartido.setActionCommand(CPARTIDO);
 		cargarUnPartido.addActionListener(this);
-		
-		verEstadisticas = new JButton("Estadisticas de los equipos y jugadores");
-		verEstadisticas.setActionCommand(ESTADISTICAS);
-		verEstadisticas.addActionListener(this);
 		
 		cerrarSesion = new JButton("Cerrar Sesión");
 		cerrarSesion.setActionCommand(CERRAR);
@@ -57,7 +51,6 @@ public class PanelAdmin extends JPanel implements ActionListener{
 		add(cargarUnPartido);
 		add(borrarTemporada);
 		add(cerrarSesion);
-		add(verEstadisticas);
 		
 	}
 
@@ -76,9 +69,6 @@ public class PanelAdmin extends JPanel implements ActionListener{
 		}
 		if (evento.equals(BORRAR)) {
 			padre.borrarTemporada();
-		}
-		if (evento.equals(ESTADISTICAS)) {
-			padre.verEstadisticasAdmin();
 		}
 	}
 }

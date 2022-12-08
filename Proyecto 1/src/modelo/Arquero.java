@@ -10,7 +10,6 @@ public class Arquero extends Jugador{
 	private int penaltisAtajados;
 	private ArrayList<Integer> golesRecibidosJornada;
 	private ArrayList<Integer> penaltisAtajadosJornada;
-	
 	public Arquero() {
 		minutosJugadosJornada = new ArrayList<Integer>();
 		minutoInicioJornada= new ArrayList<Integer>();
@@ -23,7 +22,6 @@ public class Arquero extends Jugador{
 		rojasJornada= new ArrayList<Integer>();
 		golesRecibidosJornada = new ArrayList<Integer>();
 		penaltisAtajadosJornada = new ArrayList<Integer>();
-
 	}
 	public ArrayList<Integer> getGolesRecibidosJornada() {
 		return golesRecibidosJornada;
@@ -45,7 +43,6 @@ public class Arquero extends Jugador{
 		puntos += -1 * (double) this.amarillasJornada.get(numJornada-1);
 		puntos += -3 * (double) this.rojasJornada.get(numJornada-1);
 		puntos += -2 * (double) this.autogolesJornada.get(numJornada-1);
-
 		
 		if(this.golesRecibidosJornada.get(numJornada-1) == 0) { 
 			  	puntos += 4; 
@@ -62,7 +59,6 @@ public class Arquero extends Jugador{
 		if(this.minutosJugadosJornada.get(numJornada-1) > 60) {
 			puntos += 2;
 		}
-
 		if (this.puntosJornada == null) {
 			this.puntosJornada = new ArrayList<Double>();
 		}

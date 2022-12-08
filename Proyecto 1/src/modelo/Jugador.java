@@ -42,8 +42,6 @@ public abstract class Jugador {
 	protected ArrayList<Integer> penaltisErradosJornada;
 	protected ArrayList<Integer> amarillasJornada;
 	protected ArrayList<Integer> rojasJornada;
-	
-	
 	public Jugador() {
 		minutosJugadosJornada = new ArrayList<Integer>();
 		minutoInicioJornada= new ArrayList<Integer>();
@@ -55,10 +53,7 @@ public abstract class Jugador {
 		amarillasJornada= new ArrayList<Integer>();
 		rojasJornada= new ArrayList<Integer>();
 		puntosJornada = new ArrayList<Double>();
-
 	}
-
-
 	public Jugador(String nombre, String posicion) {
 		this.nombre = nombre;
 		this.posicion = posicion;
@@ -232,7 +227,6 @@ public abstract class Jugador {
 	public void setPuntosJornada(ArrayList<Double> puntosJornada) {
 		this.puntosJornada = puntosJornada;
 	}
-	
 	public void actualizarPuntosJornada(int numJornada, double puntos) {
 		if(minutosJugadosJornada==null) {
 			minutosJugadosJornada = new ArrayList<Integer>();
@@ -261,7 +255,6 @@ public abstract class Jugador {
 		if(rojasJornada==null) {
 			rojasJornada= new ArrayList<Integer>();
 		}
-
 		calcularPuntaje(numJornada);
 		
 	}
@@ -269,9 +262,6 @@ public abstract class Jugador {
 		return this.nombreEquipo;
 	}
 	public void iniciarPuntosJornada(int numJornadas) {
-		if (this.puntosJornada == null) {
-			this.puntosJornada = new ArrayList<Double>();
-		}
 		for (int i = 0; i<numJornadas;i++) {
 			this.puntosJornada.add(0.00);
 		}

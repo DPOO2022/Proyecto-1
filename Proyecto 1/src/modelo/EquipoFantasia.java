@@ -39,19 +39,15 @@ public class EquipoFantasia {
 		return puntosJornada;
 	}
 	public void actualizarPuntosJornada(int numJornada) {
-		double puntos= 0;
-
+		double puntos=0;
 		for (Jugador j: titulares) {
 			if (j==capitan) {
-				puntos= (j.getPuntosJornada().get(numJornada-1))*2;
+				puntos= puntos + (j.getPuntosJornada().get(numJornada-1))*2;
 			}	
 			else {
 				puntos+=j.getPuntosJornada().get(numJornada-1);
 			}
-			
 		}
-		 
-		
 		this.puntosTotales += puntos;
 		this.puntosJornada.set(numJornada-1, puntos);
 	}

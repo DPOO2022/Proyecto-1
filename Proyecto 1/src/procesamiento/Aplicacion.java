@@ -3,10 +3,6 @@ package procesamiento;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-
 import modelo.ManejoPersistencia;
 import modelo.Administrador;
 import modelo.Arquero;
@@ -612,22 +608,6 @@ public class Aplicacion {
 	public void organizarJugadoresEquipo() {
 		((Participante)this.usuarioActivo).organizarJugadores();
 		
-	}
-	/**
-	 * Para este metodo falta el input del numero que se recibe por parametro
-	 * @return 
-	 */
-	public JFreeChart mostrarGraficoComparacionPuntosEquipos() {
-		return temporadaActual.graficoComparacionEquipos(5);
-	}
-	public JFreeChart mostrarGraficoJugadoresMasPuntosTemporada() {
-		return temporadaActual.graficoJugadoresMasPuntosTemporada();
-	}
-	public JFreeChart mostrarJugadoresMasPuntosEquipo() {
-		//Solucion provisonal: se va a pasar por parametro el mejor equipo de fantasia
-				//de la temporada
-		EquipoFantasia equipo = temporadaActual.getRankingEquiposFantasia().get(1);
-		return temporadaActual.graficoJugadoresMasPuntosEquipo(equipo);
 	}
 	
 }

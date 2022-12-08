@@ -3,11 +3,6 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Temporada {
@@ -75,60 +70,5 @@ public class Temporada {
 	}
 	public EquipoFantasia mejorEquipoFantasiaTemporada() {
 		return this.rankingEquiposFantasia.get(0);
-	}
-	public EquipoFantasia getEquipoFantasia(String nombreDelEquipo) {
-		boolean centinela = false;
-		int contador=0;
-		EquipoFantasia respuesta=null;
-		while(centinela==false) {
-			if(nombreDelEquipo==equiposFantasia.get(contador).getNombre()) {
-				respuesta=equiposFantasia.get(contador);
-				centinela=true;
-			}
-			else {
-				contador++;
-			}
-		}
-		return respuesta;
-	}
-	
-	public JFreeChart graficoComparacionEquipos(int nRanking) {
-		
-		DefaultCategoryDataset dts = new DefaultCategoryDataset();
-		for (int i=0; i<nRanking;i++) {
-			EquipoFantasia equipo= rankingEquiposFantasia.get(i);
-			
-			for (int j=0; j<equipo.getPuntosJornada().size(); j++) {
-				dts.addValue(equipo.getPuntosJornada().get(j),equipo.getNombre(),""+(j+1));
-			}
-		}
-		JFreeChart graficoEquipos = ChartFactory.createLineChart("Evolucion de los mejores equipos"
-				, "Puntos" , "Jornadas" , dts, PlotOrientation.VERTICAL, true, false, false);
-		return graficoEquipos;
-	}
-	/**
-	 * Genera una grafica de los 10 jugadores con mas puntos en la temporada
-	 */
-	public JFreeChart graficoJugadoresMasPuntosTemporada() {
-		DefaultCategoryDataset dts = new DefaultCategoryDataset();
-		for (int i=0; i<10;i++) {
-			Jugador jugador= rankingJugadores.get(i);
-			dts.addValue(jugador.getPuntosTotales(), jugador.getNombre(), ""+i);
-			}
-		JFreeChart graficoJugadores = ChartFactory.createBarChart("Jugadores con mas puntos en la temporada"
-				, "Puntos", "Jugadores", dts);
-		return graficoJugadores;
-	}
-	public JFreeChart graficoJugadoresMasPuntosEquipo(EquipoFantasia e1) {
-		DefaultCategoryDataset dts = new DefaultCategoryDataset();
-		for (int i=0; i<e1.getJugadores().size();i++) {
-			Jugador jugador=e1.getJugadores().get(i);
-			for (int j=0; j<jugador.getPuntosJornada().size(); j++) {
-				dts.addValue(jugador.getPuntosJornada().get(j),jugador.getNombre(),""+(j+1));
-			}
-		}
-		JFreeChart graficoJugadoresEquipo = ChartFactory.createLineChart("Evolucion jugadores de un equipo"
-				, "Puntos" , "Jornadas" , dts, PlotOrientation.VERTICAL, true, false, false);
-		return graficoJugadoresEquipo;
 	}
 }
