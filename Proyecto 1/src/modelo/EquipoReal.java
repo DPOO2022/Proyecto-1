@@ -35,7 +35,7 @@ public class EquipoReal {
 		if(this.resultadoPartido == null) {
 			this.resultadoPartido = new ArrayList<Boolean>();
 		}
-		this.resultadoPartido.add(numJornada-1, resultado);
+		//this.resultadoPartido.add(numJornada-1, resultado);
 		for(Jugador j: jugadores) {
 			j.actualizarPuntosJornada(numJornada, 1);
 		}
